@@ -30,10 +30,33 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
+            'role' => 'freelance',
+            'status' => 'active',
             'two_factor_secret' => null,
             'two_factor_recovery_codes' => null,
             'two_factor_confirmed_at' => null,
         ];
+    }
+
+    public function company(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'role' => 'company',
+        ]);
+    }
+
+    public function freelance(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'role' => 'freelance',
+        ]);
+    }
+
+    public function admin(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'role' => 'admin',
+        ]);
     }
 
     /**

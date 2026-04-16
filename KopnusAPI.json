@@ -1,0 +1,942 @@
+{
+  "v": 11,
+  "name": "Kopnus API",
+  "folders": [
+    {
+      "v": 11,
+      "name": "Company",
+      "folders": [],
+      "requests": [
+        {
+          "v": "17",
+          "name": "Create Jobs",
+          "method": "POST",
+          "endpoint": "<<base_url>>/api/works",
+          "params": [],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "bearer",
+            "token": "<<access_token>>",
+            "authActive": true
+          },
+          "body": {
+            "contentType": "application/json",
+            "body": "{\n  \"title\": \"Senior React Developer for E-commerce Dashboard\",\n  \"description\": \"We are looking for an experienced developer to build a responsive analytics dashboard. The project involves integrating with a REST API and implementing real-time data visualization using Chart.js.\",\n  \"budget_min\": 5000000,\n  \"budget_max\": 15000000,\n  \"type\": \"fixed\",\n  \"experience_level\": \"intermediate\",\n  \"deadline_date\": \"2026-05-20\",\n  \"skills\": [\n    1,\n    2,\n    3\n  ]\n}\n"
+          },
+          "requestVariables": [],
+          "responses": {
+            "Success": {
+              "name": "Success",
+              "originalRequest": {
+                "v": "6",
+                "name": "Create Jobs",
+                "method": "POST",
+                "endpoint": "<<base_url>>/api/works",
+                "headers": [],
+                "params": [],
+                "body": {
+                  "contentType": "application/json",
+                  "body": "{\n  \"title\": \"Senior React Developer for E-commerce Dashboard\",\n  \"description\": \"We are looking for an experienced developer to build a responsive analytics dashboard. The project involves integrating with a REST API and implementing real-time data visualization using Chart.js.\",\n  \"budget_min\": 5000000,\n  \"budget_max\": 15000000,\n  \"type\": \"fixed\",\n  \"experience_level\": \"intermediate\",\n  \"deadline_date\": \"2026-05-20\",\n  \"skills\": [\n    1,\n    2,\n    3\n  ]\n}\n"
+                },
+                "auth": {
+                  "authType": "bearer",
+                  "token": "Bearer <<access_token>>",
+                  "authActive": true
+                },
+                "requestVariables": []
+              },
+              "status": "Created",
+              "code": 201,
+              "headers": [
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\"data\":{\"id\":1,\"company_id\":1,\"title\":\"Senior React Developer for E-commerce Dashboard\",\"description\":\"We are looking for an experienced developer to build a responsive analytics dashboard. The project involves integrating with a REST API and implementing real-time data visualization using Chart.js.\",\"budget_min\":\"5000000.00\",\"budget_max\":\"15000000.00\",\"type\":\"fixed\",\"experience_level\":\"intermediate\",\"status\":null,\"deadline_date\":\"2026-05-20\",\"created_at\":\"2026-04-16T04:10:20+00:00\",\"updated_at\":\"2026-04-16T04:10:20+00:00\",\"skills\":[{\"id\":1,\"name\":\"PHP\",\"created_at\":\"2026-04-16T03:49:01+00:00\",\"updated_at\":\"2026-04-16T03:49:01+00:00\"},{\"id\":2,\"name\":\"JavaScript\",\"created_at\":\"2026-04-16T03:49:01+00:00\",\"updated_at\":\"2026-04-16T03:49:01+00:00\"},{\"id\":3,\"name\":\"TypeScript\",\"created_at\":\"2026-04-16T03:49:01+00:00\",\"updated_at\":\"2026-04-16T03:49:01+00:00\"}]}}"
+            }
+          },
+          "description": null
+        },
+        {
+          "v": "17",
+          "name": "Login as Company",
+          "method": "POST",
+          "endpoint": "<<base_url>>/api/login",
+          "params": [],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "// Parse the JSON response\nconst responseData = pm.response.json();\n\n// Extract the token\nconst token = responseData.token;\n\nif (token) {\n    pw.env.set(\"access_token\", token);\n} else {\n    console.error(\"Token missing from response.\");\n}",
+          "auth": {
+            "authType": "inherit",
+            "authActive": true
+          },
+          "body": {
+            "contentType": "application/json",
+            "body": "{\n  \"email\": \"company@example.com\",\n  \"password\": \"password\"\n}"
+          },
+          "requestVariables": [],
+          "responses": {
+            "Success": {
+              "name": "Success",
+              "originalRequest": {
+                "v": "6",
+                "name": "Login",
+                "method": "POST",
+                "endpoint": "<<base_url>>/api/login",
+                "headers": [],
+                "params": [],
+                "body": {
+                  "contentType": "application/json",
+                  "body": "{\n  \"email\": \"company@example.com\",\n  \"password\": \"password\"\n}"
+                },
+                "auth": {
+                  "authType": "none",
+                  "authActive": true
+                },
+                "requestVariables": []
+              },
+              "status": "OK",
+              "code": 200,
+              "headers": [
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\"user\":{\"id\":2,\"name\":\"PT Teknologi Maju\",\"email\":\"company@example.com\",\"email_verified_at\":\"2026-04-16T03:49:04.000000Z\",\"role\":\"company\",\"status\":\"active\",\"created_at\":\"2026-04-16T03:49:04.000000Z\",\"updated_at\":\"2026-04-16T03:49:04.000000Z\",\"two_factor_confirmed_at\":null,\"company\":{\"id\":1,\"user_id\":2,\"name\":\"PT Teknologi Maju\",\"description\":\"Perusahaan teknologi terkemuka\",\"industry\":\"Technology\",\"website\":\"https:\\/\\/teknologimaju.com\",\"logo_url\":null,\"location\":\"Jakarta\",\"is_verified\":true,\"created_at\":\"2026-04-16T03:49:04.000000Z\",\"updated_at\":\"2026-04-16T03:49:04.000000Z\"}},\"profile\":{\"id\":1,\"user_id\":2,\"name\":\"PT Teknologi Maju\",\"description\":\"Perusahaan teknologi terkemuka\",\"industry\":\"Technology\",\"website\":\"https:\\/\\/teknologimaju.com\",\"logo_url\":null,\"location\":\"Jakarta\",\"is_verified\":true,\"created_at\":\"2026-04-16T03:49:04.000000Z\",\"updated_at\":\"2026-04-16T03:49:04.000000Z\"},\"token\":\"2|ithQZrolKTX6AZhym9NRHQgS1e7wUH16cPsknPMkaf209291\"}"
+            }
+          },
+          "description": null
+        },
+        {
+          "v": "17",
+          "name": "List Works Company",
+          "method": "GET",
+          "endpoint": "<<base_url>>/api/company/works",
+          "params": [
+            {
+              "key": "type",
+              "value": "fixed",
+              "active": true,
+              "description": "fixed / hourly"
+            },
+            {
+              "key": "budget_min",
+              "value": "",
+              "active": true,
+              "description": "numeric"
+            },
+            {
+              "key": "budget_max",
+              "value": "",
+              "active": true,
+              "description": "numeric"
+            },
+            {
+              "key": "skills[]",
+              "value": "1",
+              "active": true,
+              "description": "array"
+            },
+            {
+              "key": "status",
+              "value": "draft",
+              "active": true,
+              "description": "draft, open, in_progress, closed, cancelled"
+            },
+            {
+              "key": "sort_by",
+              "value": "",
+              "active": true,
+              "description": "created_at, title, budget_min, budget_max"
+            },
+            {
+              "key": "sort_order",
+              "value": "asc",
+              "active": true,
+              "description": "asc, desc"
+            },
+            {
+              "key": "per_page",
+              "value": "",
+              "active": true,
+              "description": "numeric | min: 1 | max: 100"
+            },
+            {
+              "key": "page",
+              "value": "",
+              "active": true,
+              "description": "numeric | min: 1"
+            }
+          ],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "bearer",
+            "token": "<<access_token>>",
+            "authActive": true
+          },
+          "body": {
+            "contentType": null,
+            "body": null
+          },
+          "requestVariables": [],
+          "responses": {
+            "Success": {
+              "name": "Success",
+              "originalRequest": {
+                "v": "6",
+                "name": "List Works Company",
+                "method": "GET",
+                "endpoint": "<<base_url>>/api/company/works",
+                "headers": [],
+                "params": [
+                  {
+                    "key": "type",
+                    "value": "fixed",
+                    "active": true,
+                    "description": "fixed / hourly"
+                  },
+                  {
+                    "key": "budget_min",
+                    "value": "",
+                    "active": true,
+                    "description": "numeric"
+                  },
+                  {
+                    "key": "budget_max",
+                    "value": "",
+                    "active": true,
+                    "description": "numeric"
+                  },
+                  {
+                    "key": "skills[]",
+                    "value": "1",
+                    "active": true,
+                    "description": "array"
+                  },
+                  {
+                    "key": "status",
+                    "value": "draft",
+                    "active": true,
+                    "description": "draft, open, in_progress, closed, cancelled"
+                  },
+                  {
+                    "key": "sort_by",
+                    "value": "",
+                    "active": true,
+                    "description": "created_at, title, budget_min, budget_max"
+                  },
+                  {
+                    "key": "sort_order",
+                    "value": "asc",
+                    "active": true,
+                    "description": "asc, desc"
+                  },
+                  {
+                    "key": "per_page",
+                    "value": "",
+                    "active": true,
+                    "description": "numeric | min: 1 | max: 100"
+                  },
+                  {
+                    "key": "page",
+                    "value": "",
+                    "active": true,
+                    "description": "numeric | min: 1"
+                  }
+                ],
+                "body": {
+                  "contentType": null,
+                  "body": null
+                },
+                "auth": {
+                  "authType": "bearer",
+                  "token": "<<access_token>>",
+                  "authActive": true
+                },
+                "requestVariables": []
+              },
+              "status": "OK",
+              "code": 200,
+              "headers": [
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\"data\":[{\"id\":1,\"company_id\":1,\"title\":\"Senior React Developer for E-commerce Dashboard\",\"description\":\"We are looking for an experienced developer to build a responsive analytics dashboard. The project involves integrating with a REST API and implementing real-time data visualization using Chart.js.\",\"budget_min\":\"5000000.00\",\"budget_max\":\"15000000.00\",\"type\":\"fixed\",\"experience_level\":\"intermediate\",\"status\":\"draft\",\"deadline_date\":\"2026-05-20\",\"created_at\":\"2026-04-16T04:10:20+00:00\",\"updated_at\":\"2026-04-16T04:10:20+00:00\",\"skills\":[{\"id\":1,\"name\":\"PHP\",\"created_at\":\"2026-04-16T03:49:01+00:00\",\"updated_at\":\"2026-04-16T03:49:01+00:00\"},{\"id\":2,\"name\":\"JavaScript\",\"created_at\":\"2026-04-16T03:49:01+00:00\",\"updated_at\":\"2026-04-16T03:49:01+00:00\"},{\"id\":3,\"name\":\"TypeScript\",\"created_at\":\"2026-04-16T03:49:01+00:00\",\"updated_at\":\"2026-04-16T03:49:01+00:00\"}]}],\"links\":{\"first\":\"http:\\/\\/localhost:8000\\/api\\/company\\/works?page=1\",\"last\":\"http:\\/\\/localhost:8000\\/api\\/company\\/works?page=3\",\"prev\":null,\"next\":\"http:\\/\\/localhost:8000\\/api\\/company\\/works?page=2\"},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":3,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"page\":null,\"active\":false},{\"url\":\"http:\\/\\/localhost:8000\\/api\\/company\\/works?page=1\",\"label\":\"1\",\"page\":1,\"active\":true},{\"url\":\"http:\\/\\/localhost:8000\\/api\\/company\\/works?page=2\",\"label\":\"2\",\"page\":2,\"active\":false},{\"url\":\"http:\\/\\/localhost:8000\\/api\\/company\\/works?page=3\",\"label\":\"3\",\"page\":3,\"active\":false},{\"url\":\"http:\\/\\/localhost:8000\\/api\\/company\\/works?page=2\",\"label\":\"Next &raquo;\",\"page\":2,\"active\":false}],\"path\":\"http:\\/\\/localhost:8000\\/api\\/company\\/works\",\"per_page\":1,\"to\":1,\"total\":3}}"
+            }
+          },
+          "description": null
+        },
+        {
+          "v": "17",
+          "name": "Update Work",
+          "method": "PUT",
+          "endpoint": "<<base_url>>/api/works/1",
+          "params": [
+            {
+              "key": "title",
+              "value": "",
+              "active": false,
+              "description": ""
+            },
+            {
+              "key": "description",
+              "value": "",
+              "active": false,
+              "description": ""
+            },
+            {
+              "key": "budget_min",
+              "value": "",
+              "active": false,
+              "description": "numeric | min:0"
+            },
+            {
+              "key": "budget_max",
+              "value": "",
+              "active": false,
+              "description": ""
+            },
+            {
+              "key": "type",
+              "value": "",
+              "active": false,
+              "description": "fixed | hourly"
+            },
+            {
+              "key": "experience_level",
+              "value": "",
+              "active": false,
+              "description": "entry, intermediate, expert"
+            },
+            {
+              "key": "deadline_date",
+              "value": "",
+              "active": false,
+              "description": ""
+            },
+            {
+              "key": "status",
+              "value": "open",
+              "active": true,
+              "description": "draft, open, closed, cancelled"
+            },
+            {
+              "key": "skills[]",
+              "value": "",
+              "active": false,
+              "description": ""
+            }
+          ],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "bearer",
+            "token": "<<access_token>>",
+            "authActive": true
+          },
+          "body": {
+            "contentType": null,
+            "body": null
+          },
+          "requestVariables": [],
+          "responses": {
+            "Success": {
+              "name": "Success",
+              "originalRequest": {
+                "v": "6",
+                "name": "Update Work",
+                "method": "PUT",
+                "endpoint": "<<base_url>>/api/works/1",
+                "headers": [],
+                "params": [
+                  {
+                    "key": "title",
+                    "value": "",
+                    "active": false,
+                    "description": ""
+                  },
+                  {
+                    "key": "description",
+                    "value": "",
+                    "active": false,
+                    "description": ""
+                  },
+                  {
+                    "key": "budget_min",
+                    "value": "",
+                    "active": false,
+                    "description": "numeric | min:0"
+                  },
+                  {
+                    "key": "budget_max",
+                    "value": "",
+                    "active": false,
+                    "description": ""
+                  },
+                  {
+                    "key": "type",
+                    "value": "",
+                    "active": false,
+                    "description": "fixed | hourly"
+                  },
+                  {
+                    "key": "experience_level",
+                    "value": "",
+                    "active": false,
+                    "description": "entry, intermediate, expert"
+                  },
+                  {
+                    "key": "deadline_date",
+                    "value": "",
+                    "active": false,
+                    "description": ""
+                  },
+                  {
+                    "key": "status",
+                    "value": "open",
+                    "active": true,
+                    "description": "draft, open, closed, cancelled"
+                  },
+                  {
+                    "key": "skills[]",
+                    "value": "",
+                    "active": false,
+                    "description": ""
+                  }
+                ],
+                "body": {
+                  "contentType": null,
+                  "body": null
+                },
+                "auth": {
+                  "authType": "bearer",
+                  "token": "<<access_token>>",
+                  "authActive": true
+                },
+                "requestVariables": []
+              },
+              "status": "OK",
+              "code": 200,
+              "headers": [
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\"data\":{\"id\":1,\"company_id\":1,\"title\":\"Senior React Developer for E-commerce Dashboard\",\"description\":\"We are looking for an experienced developer to build a responsive analytics dashboard. The project involves integrating with a REST API and implementing real-time data visualization using Chart.js.\",\"budget_min\":\"5000000.00\",\"budget_max\":\"15000000.00\",\"type\":\"fixed\",\"experience_level\":\"intermediate\",\"status\":\"open\",\"deadline_date\":\"2026-05-20\",\"created_at\":\"2026-04-16T04:10:20+00:00\",\"updated_at\":\"2026-04-16T05:45:20+00:00\",\"skills\":[{\"id\":1,\"name\":\"PHP\",\"created_at\":\"2026-04-16T03:49:01+00:00\",\"updated_at\":\"2026-04-16T03:49:01+00:00\"},{\"id\":2,\"name\":\"JavaScript\",\"created_at\":\"2026-04-16T03:49:01+00:00\",\"updated_at\":\"2026-04-16T03:49:01+00:00\"},{\"id\":3,\"name\":\"TypeScript\",\"created_at\":\"2026-04-16T03:49:01+00:00\",\"updated_at\":\"2026-04-16T03:49:01+00:00\"}],\"company\":{\"id\":1,\"name\":\"PT Teknologi Maju\",\"description\":\"Perusahaan teknologi terkemuka\",\"industry\":\"Technology\",\"location\":\"Jakarta\",\"website\":\"https:\\/\\/teknologimaju.com\",\"logo_url\":null,\"is_verified\":true}}}"
+            }
+          },
+          "description": null
+        },
+        {
+          "v": "17",
+          "name": "List Applied Freelancers",
+          "method": "GET",
+          "endpoint": "<<base_url>>/api/works/1/applications",
+          "params": [
+            {
+              "key": "status",
+              "value": "",
+              "active": true,
+              "description": "pending, accepted, rejected, withdrawn"
+            },
+            {
+              "key": "sort_by",
+              "value": "",
+              "active": true,
+              "description": "created_at, proposed_rate"
+            },
+            {
+              "key": "sort_order",
+              "value": "asc",
+              "active": true,
+              "description": "asc, desc"
+            },
+            {
+              "key": "per_page",
+              "value": "10",
+              "active": true,
+              "description": "min: 1"
+            },
+            {
+              "key": "page",
+              "value": "1",
+              "active": true,
+              "description": "min: 1"
+            }
+          ],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "bearer",
+            "token": "<<access_token>>",
+            "authActive": true
+          },
+          "body": {
+            "contentType": null,
+            "body": null
+          },
+          "requestVariables": [],
+          "responses": {
+            "Success": {
+              "name": "Success",
+              "originalRequest": {
+                "v": "6",
+                "name": "List Applied Freelancers",
+                "method": "GET",
+                "endpoint": "<<base_url>>/api/works/1/applications",
+                "headers": [],
+                "params": [
+                  {
+                    "key": "status",
+                    "value": "",
+                    "active": true,
+                    "description": "pending, accepted, rejected, withdrawn"
+                  },
+                  {
+                    "key": "sort_by",
+                    "value": "",
+                    "active": true,
+                    "description": "created_at, proposed_rate"
+                  },
+                  {
+                    "key": "sort_order",
+                    "value": "asc",
+                    "active": true,
+                    "description": "asc, desc"
+                  },
+                  {
+                    "key": "per_page",
+                    "value": "10",
+                    "active": true,
+                    "description": "min: 1"
+                  },
+                  {
+                    "key": "page",
+                    "value": "1",
+                    "active": true,
+                    "description": "min: 1"
+                  }
+                ],
+                "body": {
+                  "contentType": null,
+                  "body": null
+                },
+                "auth": {
+                  "authType": "bearer",
+                  "token": "<<access_token>>",
+                  "authActive": true
+                },
+                "requestVariables": []
+              },
+              "status": "OK",
+              "code": 200,
+              "headers": [
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\"data\":[{\"id\":1,\"work_id\":1,\"freelancer_id\":1,\"cover_letter\":\"I am very interested in this project and believe my skills are a perfect match.\",\"proposed_rate\":\"75000000.00\",\"status\":\"pending\",\"created_at\":\"2026-04-16T05:59:13+00:00\",\"updated_at\":\"2026-04-16T05:59:13+00:00\",\"freelance\":null}],\"links\":{\"first\":\"http:\\/\\/localhost:8000\\/api\\/works\\/1\\/applications?page=1\",\"last\":\"http:\\/\\/localhost:8000\\/api\\/works\\/1\\/applications?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"page\":null,\"active\":false},{\"url\":\"http:\\/\\/localhost:8000\\/api\\/works\\/1\\/applications?page=1\",\"label\":\"1\",\"page\":1,\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"page\":null,\"active\":false}],\"path\":\"http:\\/\\/localhost:8000\\/api\\/works\\/1\\/applications\",\"per_page\":10,\"to\":1,\"total\":1}}"
+            }
+          },
+          "description": null
+        }
+      ],
+      "auth": {
+        "authActive": true,
+        "authType": "inherit"
+      },
+      "headers": [],
+      "variables": [],
+      "description": null
+    },
+    {
+      "v": 11,
+      "name": "Freelancer",
+      "folders": [],
+      "requests": [
+        {
+          "v": "17",
+          "name": "Login as Freelancer",
+          "method": "POST",
+          "endpoint": "<<base_url>>/api/login",
+          "params": [],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "// Parse the JSON response\nconst responseData = pm.response.json();\n\n// Extract the token\nconst token = responseData.token;\n\nif (token) {\n    pw.env.set(\"access_token_freelancer\", token);\n} else {\n    console.error(\"Token missing from response.\");\n}",
+          "auth": {
+            "authType": "inherit",
+            "authActive": true
+          },
+          "body": {
+            "contentType": "application/json",
+            "body": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"password\"\n}"
+          },
+          "requestVariables": [],
+          "responses": {
+            "Success": {
+              "name": "Success",
+              "originalRequest": {
+                "v": "6",
+                "name": "Login as Freelancer",
+                "method": "POST",
+                "endpoint": "<<base_url>>/api/login",
+                "headers": [],
+                "params": [],
+                "body": {
+                  "contentType": "application/json",
+                  "body": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"password\"\n}"
+                },
+                "auth": {
+                  "authType": "none",
+                  "authActive": true
+                },
+                "requestVariables": []
+              },
+              "status": "OK",
+              "code": 200,
+              "headers": [
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\"user\":{\"id\":3,\"name\":\"John Doe\",\"email\":\"john@example.com\",\"email_verified_at\":\"2026-04-16T03:49:05.000000Z\",\"role\":\"freelance\",\"status\":\"active\",\"created_at\":\"2026-04-16T03:49:05.000000Z\",\"updated_at\":\"2026-04-16T03:49:05.000000Z\",\"two_factor_confirmed_at\":null,\"freelance\":{\"id\":1,\"user_id\":3,\"fullname\":\"John Doe\",\"headline\":\"Full Stack Developer\",\"bio\":\"Pengalaman 5 tahun dalam pengembangan web\",\"experience_years\":5,\"hourly_rate\":\"50.00\",\"availability\":\"available\",\"location\":\"Bandung\",\"rating_avg\":\"4.80\",\"total_reviews\":20,\"created_at\":\"2026-04-16T03:49:05.000000Z\",\"updated_at\":\"2026-04-16T03:49:05.000000Z\"}},\"profile\":{\"id\":1,\"user_id\":3,\"fullname\":\"John Doe\",\"headline\":\"Full Stack Developer\",\"bio\":\"Pengalaman 5 tahun dalam pengembangan web\",\"experience_years\":5,\"hourly_rate\":\"50.00\",\"availability\":\"available\",\"location\":\"Bandung\",\"rating_avg\":\"4.80\",\"total_reviews\":20,\"created_at\":\"2026-04-16T03:49:05.000000Z\",\"updated_at\":\"2026-04-16T03:49:05.000000Z\"},\"token\":\"4|KW63UzMaluPs1mMdNOaRlF0TDH9OrHvjkQMkrleWc37700bb\"}"
+            }
+          },
+          "description": null
+        },
+        {
+          "v": "17",
+          "name": "List Works",
+          "method": "GET",
+          "endpoint": "<<base_url>>/api/works",
+          "params": [
+            {
+              "key": "search",
+              "value": "",
+              "active": true,
+              "description": ""
+            },
+            {
+              "key": "type",
+              "value": "",
+              "active": true,
+              "description": "fixed, hourly"
+            },
+            {
+              "key": "experience_level",
+              "value": "",
+              "active": true,
+              "description": "entry, intermediate, expert"
+            },
+            {
+              "key": "budget_min",
+              "value": "",
+              "active": true,
+              "description": "numeric | min:0"
+            },
+            {
+              "key": "budget_max",
+              "value": "",
+              "active": true,
+              "description": "numeric | min:0"
+            },
+            {
+              "key": "skills[]",
+              "value": "1",
+              "active": true,
+              "description": "numeric"
+            },
+            {
+              "key": "status",
+              "value": "",
+              "active": true,
+              "description": "draft, open, in_progress, closed, cancelled"
+            },
+            {
+              "key": "sort_by",
+              "value": "",
+              "active": true,
+              "description": "created_at, title, budget_min, budget_max"
+            },
+            {
+              "key": "sort_order",
+              "value": "asc",
+              "active": true,
+              "description": "asc, desc"
+            },
+            {
+              "key": "per_page",
+              "value": "",
+              "active": true,
+              "description": "numeric"
+            },
+            {
+              "key": "page",
+              "value": "",
+              "active": true,
+              "description": "numeric"
+            }
+          ],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "inherit",
+            "authActive": true
+          },
+          "body": {
+            "contentType": null,
+            "body": null
+          },
+          "requestVariables": [],
+          "responses": {
+            "Success": {
+              "name": "Success",
+              "originalRequest": {
+                "v": "6",
+                "name": "List Works",
+                "method": "GET",
+                "endpoint": "<<base_url>>/api/works",
+                "headers": [],
+                "params": [
+                  {
+                    "key": "search",
+                    "value": "",
+                    "active": true,
+                    "description": ""
+                  },
+                  {
+                    "key": "type",
+                    "value": "",
+                    "active": true,
+                    "description": "fixed, hourly"
+                  },
+                  {
+                    "key": "experience_level",
+                    "value": "",
+                    "active": true,
+                    "description": "entry, intermediate, expert"
+                  },
+                  {
+                    "key": "budget_min",
+                    "value": "",
+                    "active": true,
+                    "description": "numeric | min:0"
+                  },
+                  {
+                    "key": "budget_max",
+                    "value": "",
+                    "active": true,
+                    "description": "numeric | min:0"
+                  },
+                  {
+                    "key": "skills[]",
+                    "value": "1",
+                    "active": true,
+                    "description": "numeric"
+                  },
+                  {
+                    "key": "status",
+                    "value": "",
+                    "active": true,
+                    "description": "draft, open, in_progress, closed, cancelled"
+                  },
+                  {
+                    "key": "sort_by",
+                    "value": "",
+                    "active": true,
+                    "description": "created_at, title, budget_min, budget_max"
+                  },
+                  {
+                    "key": "sort_order",
+                    "value": "asc",
+                    "active": true,
+                    "description": "asc, desc"
+                  },
+                  {
+                    "key": "per_page",
+                    "value": "",
+                    "active": true,
+                    "description": "numeric"
+                  },
+                  {
+                    "key": "page",
+                    "value": "",
+                    "active": true,
+                    "description": "numeric"
+                  }
+                ],
+                "body": {
+                  "contentType": null,
+                  "body": null
+                },
+                "auth": {
+                  "authType": "none",
+                  "authActive": true
+                },
+                "requestVariables": []
+              },
+              "status": "OK",
+              "code": 200,
+              "headers": [
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\"data\":[{\"id\":1,\"company_id\":1,\"title\":\"Senior React Developer for E-commerce Dashboard\",\"description\":\"We are looking for an experienced developer to build a responsive analytics dashboard. The project involves integrating with a REST API and implementing real-time data visualization using Chart.js.\",\"budget_min\":\"5000000.00\",\"budget_max\":\"15000000.00\",\"type\":\"fixed\",\"experience_level\":\"intermediate\",\"status\":\"open\",\"deadline_date\":\"2026-05-20\",\"created_at\":\"2026-04-16T04:10:20+00:00\",\"updated_at\":\"2026-04-16T05:45:20+00:00\",\"skills\":[{\"id\":1,\"name\":\"PHP\",\"created_at\":\"2026-04-16T03:49:01+00:00\",\"updated_at\":\"2026-04-16T03:49:01+00:00\"},{\"id\":2,\"name\":\"JavaScript\",\"created_at\":\"2026-04-16T03:49:01+00:00\",\"updated_at\":\"2026-04-16T03:49:01+00:00\"},{\"id\":3,\"name\":\"TypeScript\",\"created_at\":\"2026-04-16T03:49:01+00:00\",\"updated_at\":\"2026-04-16T03:49:01+00:00\"}],\"company\":{\"id\":1,\"name\":\"PT Teknologi Maju\",\"description\":\"Perusahaan teknologi terkemuka\",\"industry\":\"Technology\",\"location\":\"Jakarta\",\"website\":\"https:\\/\\/teknologimaju.com\",\"logo_url\":null,\"is_verified\":true}}],\"links\":{\"first\":\"http:\\/\\/localhost:8000\\/api\\/works?page=1\",\"last\":\"http:\\/\\/localhost:8000\\/api\\/works?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"page\":null,\"active\":false},{\"url\":\"http:\\/\\/localhost:8000\\/api\\/works?page=1\",\"label\":\"1\",\"page\":1,\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"page\":null,\"active\":false}],\"path\":\"http:\\/\\/localhost:8000\\/api\\/works\",\"per_page\":1,\"to\":1,\"total\":1}}"
+            }
+          },
+          "description": null
+        },
+        {
+          "v": "17",
+          "name": "Apply Works",
+          "method": "POST",
+          "endpoint": "<<base_url>>/api/works/1/applications",
+          "params": [],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "bearer",
+            "token": "<<access_token_freelancer>>",
+            "authActive": true
+          },
+          "body": {
+            "contentType": "application/json",
+            "body": "{\n  \"cover_letter\": \"I am very interested in this project and believe my skills are a perfect match.\",\n  \"proposed_rate\": 75000000\n}\n"
+          },
+          "requestVariables": [],
+          "responses": {
+            "Success": {
+              "name": "Success",
+              "originalRequest": {
+                "v": "6",
+                "name": "Apply Works",
+                "method": "POST",
+                "endpoint": "<<base_url>>/api/works/1/applications",
+                "headers": [],
+                "params": [],
+                "body": {
+                  "contentType": "application/json",
+                  "body": "{\n  \"cover_letter\": \"I am very interested in this project and believe my skills are a perfect match.\",\n  \"proposed_rate\": 75000000\n}\n"
+                },
+                "auth": {
+                  "authType": "bearer",
+                  "token": "<<access_token_freelancer>>",
+                  "authActive": true
+                },
+                "requestVariables": []
+              },
+              "status": "Created",
+              "code": 201,
+              "headers": [
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\"data\":{\"id\":1,\"work_id\":1,\"freelancer_id\":1,\"cover_letter\":\"I am very interested in this project and believe my skills are a perfect match.\",\"proposed_rate\":\"75000000.00\",\"status\":\"pending\",\"created_at\":\"2026-04-16T05:59:13+00:00\",\"updated_at\":\"2026-04-16T05:59:13+00:00\",\"work\":{\"id\":1,\"company_id\":1,\"title\":\"Senior React Developer for E-commerce Dashboard\",\"description\":\"We are looking for an experienced developer to build a responsive analytics dashboard. The project involves integrating with a REST API and implementing real-time data visualization using Chart.js.\",\"budget_min\":\"5000000.00\",\"budget_max\":\"15000000.00\",\"type\":\"fixed\",\"experience_level\":\"intermediate\",\"status\":\"open\",\"deadline_date\":\"2026-05-20\",\"created_at\":\"2026-04-16T04:10:20+00:00\",\"updated_at\":\"2026-04-16T05:45:20+00:00\"}}}"
+            },
+            "Already Apply Works": {
+              "name": "Already Apply Works",
+              "originalRequest": {
+                "v": "6",
+                "name": "Apply Works",
+                "method": "POST",
+                "endpoint": "<<base_url>>/api/works/1/applications",
+                "headers": [],
+                "params": [],
+                "body": {
+                  "contentType": "application/json",
+                  "body": "{\n  \"cover_letter\": \"I am very interested in this project and believe my skills are a perfect match.\",\n  \"proposed_rate\": 75000000\n}\n"
+                },
+                "auth": {
+                  "authType": "bearer",
+                  "token": "<<access_token_freelancer>>",
+                  "authActive": true
+                },
+                "requestVariables": []
+              },
+              "status": "Conflict",
+              "code": 409,
+              "headers": [
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\"message\":\"You have already applied to this work.\"}"
+            }
+          },
+          "description": null
+        }
+      ],
+      "auth": {
+        "authActive": true,
+        "authType": "inherit"
+      },
+      "headers": [],
+      "variables": [],
+      "description": null
+    }
+  ],
+  "requests": [],
+  "auth": {
+    "authType": "none",
+    "authActive": true
+  },
+  "headers": [],
+  "variables": [],
+  "description": ""
+}
