@@ -1,0 +1,25 @@
+{
+  "id": "cacgomzwqci",
+  "v": 2,
+  "name": "Kopnus",
+  "variables": [
+    {
+      "key": "base_url",
+      "secret": false,
+      "initialValue": "http://localhost:8000",
+      "currentValue": ""
+    },
+    {
+      "key": "access_token",
+      "secret": false,
+      "initialValue": "",
+      "currentValue": "8|LzRISWWpnEAMJgKgnBJnRoW4VGL88Ck7nhlowF38e7e287ed"
+    },
+    {
+      "key": "access_token_freelancer",
+      "secret": false,
+      "initialValue": "",
+      "currentValue": "7|ixU0v3pwiRA15dHjxuMgxVaQ8p7P7kyVemCy8qma424225bf"
+    }
+  ]
+}
